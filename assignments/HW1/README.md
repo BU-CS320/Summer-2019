@@ -2,10 +2,13 @@
 Due 5/30
 
 
-## Notes
+### Instructions
+* Fill in the bodies of the undefined functions and data
 * DO NOT CHANGE THE TYPE SIGNATURES!
-* You may always add your own helper functions and helper data!
+
+## Notes
 * You will need to define `data Point` and `ShortAnswer` with `deriving Show` before you can run the tests
+* You may always add your own helper functions and helper data!
 
 
 
