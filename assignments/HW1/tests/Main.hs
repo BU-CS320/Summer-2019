@@ -4,8 +4,12 @@
 
 module Main where
 
-  --TODO: note for next year: use typeclasses for the conversion, and to give deffinitions of equality to existing data, so conversions are not needed
-  -- quick check become very counter productive
+
+--TODO: note for next year: 
+-- clean up into separate files, remove the non standard indentation
+-- use typeclasses for the conversion, and to give definitions of equality to existing data, so conversions are not needed
+-- quick check become very counter productive
+
 
   import Hw
   import Data.Tree
@@ -19,7 +23,6 @@ module Main where
       boolTest
       , natTest
       , dayTest
-      , monthTest
       , pointTest
       , shortAnsTest
       , natListTest
@@ -287,7 +290,7 @@ module Main where
     ]
   
   -- test exponential
-  expTemp x y = (^) y x 
+  expTemp x y = (^) x y
   expTest = testGroup "test exp function"
     [
       testTwoArgFuncByIso ("testing exp " ++ show a1 ++ " " ++ show a2) 
@@ -426,49 +429,6 @@ module Main where
         | (numberOfWeekends, daysAfterWeekends) <-
             [(2, 0), (1, 1), (0, 2), (0, 3), (0, 4), (0, 5), (1, 6)]
       ]
-
-  ---- Test Month ----
-  -- implement eq type class for for month
-  deriving instance Eq Month
-
-  -- helper
-  nextNMonthsOf :: Month -> Int -> Month
-  nextNMonthsOf m n
-    | n < 0 = undefined  -- do not support previous days
-    | n == 0 = m
-    | n > 0 = nextNMonthsOf (nextMonth m) (n - 1)
-
-  allMonths :: [Month]
-  allMonths = map (nextNMonthsOf partyMonth) [0..11]
-
-  -- The test for month
-  monthTest = testGroup "Test all the function on Month"
-    [
-      monthEqualityTest
-      , after12BackToOriginTest
-    ]
-
-  -- test for all the equality of month
-  -- only the same month should be equal to each other
-  -- others should be different 
-  monthEqualityTest = testGroup "test the equality of months"
-    [
-      testCase ("test equality of the "++ show n1 ++ 
-        "th month after party month and " ++ show n2 ++ 
-        "th month after party month")
-      $ assertEqual [] (n1 == n2) ((nextNMonthsOf m n1) == (nextNMonthsOf m n2)) 
-      | n1 <- [0..11], n2 <- [0..11]
-    ]
-    where 
-      m = partyMonth
-
-  -- test that for all month, after 12 month it will go back to the original month
-  after12BackToOriginTest = testGroup "test after 12 month the it should be the original month" 
-    [
-      testCase ("12 months after " ++ show m ++ " should still be " ++ show m)
-      $ assertEqual [] m (nextNMonthsOf m 12)
-      | m <- allMonths
-    ]
 
   ---- Test Point ----
   -- implement Eq type class for Point
