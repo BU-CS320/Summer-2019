@@ -1,4 +1,13 @@
-# Week10 Due Friday 4/12
+# This assignment is a DRAFT!
+that means some problems may change slightly and the tests are incomplete.  Do not edit unless you are comfortable with merge conflicts
+
+* tests need to be hooked together
+* instructions need cleaning up
+
+
+
+# HW4
+Due xx
 
 
 ## Analytical  Part
