@@ -1,37 +1,14 @@
 module Hw where
 import Prelude(Show, undefined)
 
--- HOMEWORK ONE     Due 2/5 by 11:59pm by upload to your repo
---    (with a couple of hours "grace period" before it is considered late)
---    Note: There is also an analytical part to the homework
---    which will be posted on the class web page, and due to be
---    uploaded to Gradescope with the same due date and time, and
---    with the same grace period. 
-
 -- Fill in the bodies of the undefined functions and data.
 -- DO NOT CHANGE THE TYPE SIGNATURES!
 
--- Think about whether you need to write each function
--- recursively on the structure of the data, or can
--- define more simply in terms of previously-defined functions,
--- or use a helper function. 
--- You may always add your own helper functions and helper data!
 
--- Remember: Constructors must be capitalized; variable
--- and function names must be in lower case. 
--- Constructor constants are like 0-ary functions (no arguments). 
-
-
--- Part A: Basic Boolean data and functions
-
--- Note on data declarations: "deriving Show" will allow 
--- data values to be printed by interpreter.
-
-
-data Bool = True | False     deriving Show
+-- Bools may be encoded as data
+data Bool = True | False deriving Show
 
 -- Define the following familiar functions on Bools.
--- You may need multiple cases for each one.
 
 not :: Bool -> Bool
 not _ = undefined
@@ -49,9 +26,7 @@ xor :: Bool -> Bool -> Bool
 xor _ _  = undefined
 
 
--- Part B: Encoding of natural numbers using data expressions
--- and defining basic functions on these expressions.
-
+-- natural numbers may be encoded as data
 data Nat =  Zero | Succ Nat deriving Show
 
 -- the first 6 numbers
@@ -75,7 +50,6 @@ five = undefined
 
 
 -- Write the following functions
--- (Hint: try recursing on structure of first argument)
 
 add ::  Nat -> Nat -> Nat
 add _ _  = undefined
@@ -83,6 +57,8 @@ add _ _  = undefined
 mult ::  Nat -> Nat -> Nat
 mult _ _  = undefined
 
+
+-- exp takes base followed by exponent:  exp two one = two
 exp ::  Nat -> Nat -> Nat
 exp _ _  = undefined
 
@@ -100,17 +76,19 @@ lt _ _  = undefined
 
 -- Remaining Boolean tests
 
+-- Less than or equal
 le :: Nat -> Nat -> Bool
 le x y = undefined
 
+-- greater than
 gt :: Nat -> Nat -> Bool
 gt x y = undefined
 
+-- greater than or equal
 ge :: Nat -> Nat -> Bool
 ge x y = undefined
 
--- Example of useful test on Nats
--- return True on even Nats, False on odd.
+-- return True on even Nats, False on odd Nats
 isEven :: Nat -> Bool
 isEven _ = undefined
 
@@ -132,30 +110,17 @@ favoriteDay = undefined
 
 -- write a function that returns true if it is a weekend
 isWeekend :: DayOfWeek -> Bool
-isWeekend  _     = undefined
+isWeekend  _ = undefined
 
 -- Write a function that gives the next day
 nextDay :: DayOfWeek -> DayOfWeek
-nextDay  _     = undefined
+nextDay  _ = undefined
 
--- write a data type for the Months of the year
-data Month -- = ...  deriving Show
-
--- In which month is your birthday?
-partyMonth :: Month
-partyMonth = undefined
-
-
--- Write a function that gives the next Month
-nextMonth :: Month -> Month
-nextMonth  _     = undefined
-
-
--- C.2: Cartesian Coordinates
-
+-- you can encode cartesian coordinates with data
 -- Write a data type for a 2D point where x and y are Nats
 data Point --  = ...  deriving Show
 
+-- these three functions will help grading
 -- Take 2 Nats and construct a Point
 makePoint :: Nat -> Nat -> Point
 makePoint _ _ = undefined
@@ -174,10 +139,9 @@ manhattanDistance :: Point -> Point -> Nat
 manhattanDistance _ _ = undefined
 
 
--- C.3: More Alterative data
 
 -- Assume there is an boring math class where students only answer with a Bool OR with a Nat, 
--- write a data type for that answer (hint: you may use two alternatives with | ) 
+-- write a data type for that answer
 data ShortAnswer -- = ...  deriving Show
 
 -- Make a Nat answer
@@ -200,14 +164,12 @@ ansTrue = undefined
 gradeAnswer :: ShortAnswer -> ShortAnswer -> Bool
 gradeAnswer _ = undefined
 
--- Part D: Important data structures: Lists
-
--- D.1: Lists of Nats
+-- Important data structures: Lists
 
 -- We can write lists for specific data, let's do Nats first
 data ListNat = NilNat | ConsNat Nat ListNat    deriving Show
 
--- Create a list of the first 4 nats
+-- Create a list of the first 4 Nats
 exampleListNat :: ListNat
 exampleListNat = undefined
 
@@ -217,18 +179,18 @@ lengthOfListNat _  = undefined
 
 -- Write a function that finds the sum of all the numbers in the list
 sum :: ListNat -> Nat
-sum _     = undefined
+sum _ = undefined
 
 -- Write a function that tells when 2 Nat lists are equal
 eqList :: ListNat -> ListNat -> Bool
-eqList _ _  = undefined
+eqList _ _ = undefined
 
 -- Write a function that tests when a Nat is in a list
 member :: Nat -> ListNat -> Bool
-member _ _                = undefined
+member _ _ = undefined
 
 
--- D.2:  Now let's do lists of Bools
+-- Now let's do lists of Bools
 
 data ListBool = NilBool | ConsBool Bool ListBool deriving Show
 
@@ -241,7 +203,7 @@ lengthOfListBool :: ListBool -> Nat
 lengthOfListBool _  = undefined
 
 
--- D.3:  General lists: It gets very tiresome to write a list for every single datatype
+--  General lists: It gets very tiresome to write a list for every single datatype
 -- so let's abstract out the type of elements using a polymorphic type
 
 data List a = Nil | Cons a (List a)    deriving Show
@@ -262,7 +224,8 @@ listOfWork = undefined
 length :: (List a) -> Nat
 length _  = undefined
 
--- Part E: Binary trees
+
+-- Binary trees
 
 -- A binary tree is either empty, or a node with a left subtree
 -- a value at the root and a right subtree
@@ -294,7 +257,7 @@ preorder :: (Tree a) -> (List a)
 preorder  _  = undefined
 
 
--- extra ungraded questions below
+-- ungraded bonus questions:
 
 -- What is the smallest datatype you can come up with?
 data Smallests -- = ... deriving Show
