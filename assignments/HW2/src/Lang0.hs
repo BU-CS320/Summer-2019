@@ -5,6 +5,7 @@ module Lang0 where
 data Ast =
     LiteralInt Integer
   | Plus Ast Ast
+  | Mult Ast Ast
 
 -- it can be evaluated with the function eval:
 -- ex: eval ((1 + 3) + 2)  ==> 6
