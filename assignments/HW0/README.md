@@ -1,4 +1,4 @@
-# Week 1
+# HW0
 
 If you are a mac user you may need to follow the instructions under [mac-hints.md](mac-hints.md).
 
