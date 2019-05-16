@@ -2,7 +2,7 @@
 that means some problems may change slightly and the tests are incomplete.  Do not edit unless you are comfortable with merge conflicts
 
 * Better tests are needed for the Languages.
-* map tests need to be rewritten without the generic tricks
+* map tests need to be rewritten without the generic tricks, explicit tests for equality.
 * instructions need cleaning up
 
 
