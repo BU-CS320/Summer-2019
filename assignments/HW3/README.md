@@ -1,4 +1,14 @@
-# Week8 Due 3/~~26~~ 28
+# This assignment is a DRAFT!
+that means some problems may change slightly and the tests are incomplete.  Do not edit unless you are comfortable with merge conflicts
+
+* tests need to be hooked together
+* instructions need cleaning up
+
+
+
+# HW3
+Due xx
+
 extendeing the homework becuse of late tests [@974](https://piazza.com/class/jr9fgrf7efv7j0?cid=974)
 [@1013](https://piazza.com/class/jr9fgrf7efv7j0?cid=1013)
 
