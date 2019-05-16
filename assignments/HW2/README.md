@@ -1,9 +1,11 @@
-# HW3 Due ~~2/19~~ 2/20 [@628](https://piazza.com/class/jr9fgrf7efv7j0?cid=628)
+# This assignment is a DRAFT!
+that means some problems may change slightly and the tests are incomplete.  Do not edit unless you are comfortable with merge conflicts
+
+# HW3
+Due 6/1
 
 ## Code Part
 ### Instructions
-* To get the assignment run ```git pull upstream master``` in your homework directory
-* `cd` into the `week4` directory, run `cabal new-repl`
 * Fill in the bodies of the undefined functions and data
 * DO NOT CHANGE THE TYPE SIGNATURES!
 
