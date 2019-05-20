@@ -1,5 +1,5 @@
 # Summer-2019
-[website](http://www.cs.bu.edu/fac/snyder/cs320/)
+Class website (for lecture schedule, slides, and resources): [CS 320 Web Site](http://www.cs.bu.edu/fac/snyder/cs320/)
 
 
 ## REPL hints
