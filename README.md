@@ -9,4 +9,4 @@
 * `:quit` or `:q` will leave the repl
 
 ## ```git``` issues
-If you are having ```git``` issues, run ```git status``` and call on Mark for help.
+If you are having ```git``` issues, run ```git status``` and cut and paste it into a private message on GitHub for Mark. 
