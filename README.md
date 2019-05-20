@@ -8,5 +8,12 @@
 * `:type` or `:t` will tell you the type of an expression
 * `:quit` or `:q` will leave the repl
 
+* To enter more than one line in the REPL, use :{ and :}, as shown here:
+  Prelude> :{
+  Prelude| f :: Integer -> Integer
+  Prelude| f x = x
+  Prelude| :}
+  Prelude>
+
 ## ```git``` issues
 If you are having ```git``` issues, run ```git status``` and cut and paste it into a private message on GitHub for Mark. 
