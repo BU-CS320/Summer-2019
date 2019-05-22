@@ -8,13 +8,13 @@ Class website (for lecture schedule, slides, and resources): [CS 320 Web Site](h
 * `:type` or `:t` will tell you the type of an expression
 * `:quit` or `:q` will leave the repl
 
-* To enter more than one line in the REPL, use :{ and :}, as shown here:
-<pre>
-  Prelude> :{
-  Prelude| f :: Integer -> Integer
-  Prelude| f x = x
-  Prelude| :}
-  Prelude>
-</pre>
+* To enter more than one line in the REPL, use `:{` and `:}`, as shown here:
+```
+Prelude> :{
+Prelude| f :: Integer -> Integer
+Prelude| f x = x
+Prelude| :}
+Prelude>
+```
 ## ```git``` issues
 If you are having ```git``` issues, run ```git status``` and post it in a message on Piazza. 
