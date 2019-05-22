@@ -2,7 +2,7 @@
 
 Analytical Homework One:  <a href="http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/Analytical%20Homeworks/hw00.pdf">PDF</a> (to be filled out, scanned, and uploaded to <a href="www.gradescope.com">Gradescope</a>). 
 
-Coding Homework is to follow the following instructions and then complete the task shown in HW0/src/. 
+Coding Homework is to follow the following instructions and then complete the program in HW0/src/. 
 
 If you are a mac user you may need to follow the instructions under [mac-hints.md](mac-hints.md).
 
