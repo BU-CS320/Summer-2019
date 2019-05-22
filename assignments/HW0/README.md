@@ -1,6 +1,6 @@
 ## HW0  -- Due  Thursday  5/23 at midnight (with six hours grace period). 
 
-Analytical Homework One:  <a href="http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/Analytical%20Homeworks/hw00.pdf">PDF</a> (to be filled out, scanned, and uploaded to <a href="www.gradescope.com">Gradescope</a>. 
+Analytical Homework One:  <a href="http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/Analytical%20Homeworks/hw00.pdf">PDF</a> (to be filled out, scanned, and uploaded to <a href="www.gradescope.com">Gradescope</a>). 
 
 Coding Homework is to follow the following instructions and then complete the task shown in HW0/src/. 
 
