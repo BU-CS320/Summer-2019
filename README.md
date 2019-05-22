@@ -17,4 +17,4 @@ Class website (for lecture schedule, slides, and resources): [CS 320 Web Site](h
   Prelude>
 </pre>
 ## ```git``` issues
-If you are having ```git``` issues, run ```git status``` and cut and paste it into a private message on GitHub for Mark. 
+If you are having ```git``` issues, run ```git status``` and post it in a message on Piazza. 
