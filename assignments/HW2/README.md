@@ -2,7 +2,7 @@
 that means some problems may change slightly and the tests are incomplete.  Do not edit unless you are comfortable with merge conflicts
 
 
-* map tests need to be rewritten without the generic tricks, explicit tests for equality.
+* fix the tests for BB and HOP
 * other existing test need to be put into the correct place
 * instructions need cleaning up
 
