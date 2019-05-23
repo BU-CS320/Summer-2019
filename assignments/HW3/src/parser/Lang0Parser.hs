@@ -1,22 +1,10 @@
 -- This file is just for hints.
 -- Don't edit this file unless you are comfortable resolving merge conflicts, since we may add hints in the future
 -- Instead copy and paste what you want into your homework
-module Lang0ParserFast where
+module Lang0Parser where
 
 import Lang0 (Ast(..),eval, showPretty)
 import ParserMonad
-
-
--- the parser given in Lang0Parser had an inefficiency bug,
--- pointed out in https://piazza.com/class/jr9fgrf7efv7j0?cid=1023
--- under our grading plan it solution would have received full credit, but fixing the bug is instructive
-
--- fist find the simplest test cases for the Lang0Parser
-slow = parse parser "(((((((0)))))))"
-veryslow = parse parser "(((((((((0)))))))))"
-
-
--- the solution is to make the parser code more closely match the CFG derivation
 
 
 -- this parses Lang0 expressions with associativity and precedence
