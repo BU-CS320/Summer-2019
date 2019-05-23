@@ -9,10 +9,10 @@ data Answer a = Impossible | Example a
 q1 :: Answer [Bool]
 q1 = undefined
 
-q2 :: Answer ([(Int,Char)],Bool)
+q2 :: Answer ([(Integer,Char)],Bool)
 q2 = undefined
 
-q3 :: Answer (Int -> Bool -> Char -> Int -> Bool)
+q3 :: Answer (Integer -> Bool -> Char -> Integer -> Bool)
 q3 = undefined
 
 q4 :: Answer (a -> ([a],[a],[a]))

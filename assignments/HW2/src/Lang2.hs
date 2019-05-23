@@ -10,6 +10,7 @@ module Lang2 where
 data Ast =
     LiteralInt Integer
   | Plus Ast Ast
+  | Mult Ast Ast
   | Separator Ast Ast
   | Print Ast
 
@@ -27,5 +28,6 @@ eval = undefined
 instance Show Ast where
   show (LiteralInt i) = show i
   show (l `Plus` r) = "(" ++ (show l) ++ " + " ++  (show r) ++ ")"
+  show (l `Mult` r) = "(" ++ (show l) ++ " * " ++  (show r) ++ ")"
   show (l `Separator` r) = "(" ++ show l ++ "; " ++ show r ++ ")"
   show (Print b) =  "print(" ++ show b ++ ")"

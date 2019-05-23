@@ -11,8 +11,9 @@ import qualified Data.Map as Map
 
 data Ast =
       LiteralInt Integer
-    | Id String
+    | Var String
     | Plus Ast Ast
+    | Mult Ast Ast
     | Let String Ast Ast
 
 type Env = Map String Integer
@@ -24,6 +25,7 @@ eval = undefined
 -- show the fully parenthesized syntax
 instance Show Ast where
   show (LiteralInt i) = show i
-  show (Id s) = s
+  show (Var s) = s
   show (l `Plus` r) = "(" ++ (show l) ++ " + " ++  (show r) ++ ")"
+  show (l `Mult` r) = "(" ++ (show l) ++ " * " ++  (show r) ++ ")"
   show (Let s val inThis) =  "(let " ++ s ++ " = " ++ show val ++ " in " ++ show inThis ++ ")"

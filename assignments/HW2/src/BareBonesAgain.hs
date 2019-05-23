@@ -86,5 +86,3 @@ last _ = undefined
 (_)  !! (_) = undefined
 
 
-
-data Unit = Nothing | Just a deriving Show

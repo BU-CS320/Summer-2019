@@ -25,8 +25,8 @@ test-suite test
     tests
   main-is: Main.hs
   other-modules:
-    HigherOrderTest, LangTest, MapTest, TestBase, TypeProblemsTest
+    TypeProblemsTest
   build-depends:
       containers, base >= 4.7 && < 5
     , tasty >= 0.7, tasty-hunit, tasty-quickcheck, generic-arbitrary
-    , week4
+    , hw

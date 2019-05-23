@@ -11,7 +11,7 @@ import Data.Maybe
 typeProblemTests =
   testGroup
     "TypeProblems"
-    [definedTests,differentQ6Q7,differentQ8Q9]
+    [definedTests,differentQ6Q7,differentQ8Q9, testCase "expect 13 answers" $ assertEqual [] 13 $ numAns]
 
 -- for simple stuff
 instance Eq a => Eq (Answer a) where
@@ -24,34 +24,38 @@ checkDifferent Impossible _ _ = True
 checkDifferent _ Impossible _ = True
 checkDifferent (Example x) (Example y) f = f x y
 
-checkIsDefined :: (Answer a) -> (Bool)
-checkIsDefined x = case (x) of (Example _) -> True
-                               (Impossible) -> True
-                               _ -> False
-             
-defineQ1test = testCase "Q1 is defined" $ assertBool [] $ checkIsDefined q1   
-defineQ2test = testCase "Q2 is defined" $ assertBool [] $ checkIsDefined q2   
-defineQ3test = testCase "Q3 is defined" $ assertBool [] $ checkIsDefined q3   
-defineQ4test = testCase "Q4 is defined" $ assertBool [] $ checkIsDefined q4 
-defineQ5test = testCase "Q5 is defined" $ assertBool [] $ checkIsDefined q5   
-defineQ6test = testCase "Q6 is defined" $ assertBool [] $ checkIsDefined q6   
-defineQ7test = testCase "Q7 is defined" $ assertBool [] $ checkIsDefined q7   
-defineQ8test = testCase "Q8 is defined" $ assertBool [] $ checkIsDefined q8   
-defineQ9test = testCase "Q9 is defined" $ assertBool [] $ checkIsDefined q9   
-defineQ10test = testCase "Q10 is defined" $ assertBool [] $ checkIsDefined q10   
-defineQ11test = testCase "Q11 is defined" $ assertBool [] $ checkIsDefined q11 
-defineQ12test = testCase "Q12 is defined" $ assertBool [] $ checkIsDefined q12  
-defineQ13test = testCase "Q13 is defined" $ assertBool [] $ checkIsDefined q13  
-defineQ14test = testCase "Q14 is defined" $ assertBool [] $ checkIsDefined q14  
-defineQ15test = testCase "Q15 is defined" $ assertBool [] $ checkIsDefined q15  
-defineQ16test = testCase "Q16 is defined" $ assertBool [] $ checkIsDefined q16  
-defineQ17test = testCase "Q17 is defined" $ assertBool [] $ checkIsDefined q17    
-          
-                
---Make sure they didnt just write undefined
-definedTests = 
-    testGroup 
-        "Make sure answers are defined"
+checkFullyDefined :: (Answer a) -> (a -> Bool) -> (Bool)
+checkFullyDefined x ch =
+  case (x) of
+   (Example e) -> ch e
+   (Impossible) -> True
+
+eqSelf a = a == a
+
+
+defineQ1test = testCase "Q1 is defined" $ assertBool [] $ checkFullyDefined q1 eqSelf
+defineQ2test = testCase "Q2 is defined" $ assertBool [] $ checkFullyDefined q2 eqSelf
+defineQ3test = testCase "Q3 is defined" $ assertBool [] $ checkFullyDefined q3 ( \ a -> eqSelf $ a 1 True 'a' 7 )
+defineQ4test = testCase "Q4 is defined" $ assertBool [] $ checkFullyDefined q4 ( \ a -> eqSelf $ a 7 )
+defineQ5test = testCase "Q5 is defined" $ assertBool [] $ checkFullyDefined q5 ( \ a -> eqSelf $ ((a 7) :: Bool))
+defineQ6test = testCase "Q6 is defined" $ assertBool [] $ checkFullyDefined q6 ( \ a -> eqSelf $ a 7)
+defineQ7test = testCase "Q7 is defined" $ assertBool [] $ checkFullyDefined q7 ( \ a -> eqSelf $ a 7)
+defineQ8test = testCase "Q8 is defined" $ assertBool [] $ checkFullyDefined q8 ( \ a -> eqSelf $ a 7 8)
+defineQ9test = testCase "Q9 is defined" $ assertBool [] $ checkFullyDefined q9 ( \ a -> eqSelf $ a 7 8)
+defineQ10test = testCase "Q10 is defined" $ assertBool [] $ checkFullyDefined q10 ( \ a -> eqSelf $ a 7 True )
+defineQ11test = testCase "Q11 is defined" $ assertBool [] $ checkFullyDefined q11 ( \ a -> eqSelf $ a 7 True )
+defineQ12test = testCase "Q12 is defined" $ assertBool [] $ checkFullyDefined q12 ( \ a -> eqSelf $ a (\_ -> 'a') )
+defineQ13test = testCase "Q13 is defined" $ assertBool [] $ checkFullyDefined q13 ( \ a -> eqSelf $ a (\_ -> 'a') )
+defineQ14test = testCase "Q14 is defined" $ assertBool [] $ checkFullyDefined q14 ( \ a -> eqSelf $ a 7 'a')
+defineQ15test = testCase "Q15 is defined" $ assertBool [] $ checkFullyDefined q15 ( \ a -> eqSelf $ a (\_ -> 'a') (\_ -> 'a') 'a')
+defineQ16test = testCase "Q16 is defined" $ assertBool [] $ checkFullyDefined q16 ( \ a -> eqSelf $ ( a (\_ -> 'a') (\_ -> 'a') 'a' :: Char))
+defineQ17test = testCase "Q17 is defined" $ assertBool [] $ checkFullyDefined q17 ( \ a -> eqSelf $ a (\_ -> 'a') (\_ -> 'a') )
+
+
+--Make sure they didn't just write undefined
+definedTests =
+    testGroup
+        "check TypeProblems defined"
     [
     defineQ1test,
     defineQ2test,
@@ -70,13 +74,17 @@ definedTests =
     defineQ15test,
     defineQ16test,
     defineQ17test
+	
     ]
 
+	
 
 differentQ6Q7 =
-    testCase "q6 different than q7 (different functions take one same input to differnt outputs)" $ assertBool [] $ checkDifferent q6 q7 (\a1 a2 -> a1 () /= a2 ())
+    testCase "q6 different than q7 (different functions take one same input to different outputs)" $ assertBool [] $ checkDifferent q6 q7 (\a1 a2 -> a1 () /= a2 ())
 differentQ8Q9 =
-    testCase "q8 different than q8 (different functions take one same input to differnt outputs)" $ assertBool [] $ checkDifferent q8 q9 (\a1 a2 -> a1 True False /= a2 True False )
+    testCase "q8 different than q8 (different functions take one same input to different outputs)" $ assertBool [] $ checkDifferent q8 q9 (\a1 a2 -> a1 True False /= a2 True False )
+	
+numAns = length $ filter (\x -> x) $ [isExample q1, isExample q2, isExample q3, isExample q4, isExample q5, isExample q6, isExample q7, isExample q8, isExample q9, isExample q10, isExample q11, isExample q12, isExample q13, isExample q14, isExample q15, isExample q16, isExample q17]
 
-
---unfortunately pretty much any other test gives away the answers
+isExample (Example _) = True
+isExample _ = False
