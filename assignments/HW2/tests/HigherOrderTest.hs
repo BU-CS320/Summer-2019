@@ -3,8 +3,7 @@ module HigherOrderTest where
 import TestBase 
 import HigherOrderProblems (
   addoneList, addoneMap, keepGreaterThan2List, keepGreaterThan2Map,
-  sum, product, maxList, 
-  zipWith, dot, listAdder, listMaxer, fullNames,firstNames,lastNames, addAllLists, 
+  sum, product,
   okCat, badCat, mkCat, mkDog, name, isCat, isDog, isHappy, countHappy,
   footballExampleStats, yearAndTeamWithTotalGames,
   yearAndTeamWithMoreThan1Tie, yearAndTeamWithlessThan3Wins, yearsAndTeamWithMoreWinsThanLosses
@@ -25,64 +24,12 @@ sumTest = QC.testProperty "For all Lists, sum should act like Prelude's sum" $
 productTest = QC.testProperty "For all Lists, product should act like Prelude's product" $ 
     \l -> (not $ null (l::[Integer])) QC.==> (Prelude.product l == HigherOrderProblems.product l)
     
-maxListTests = testGroup "Tests for maxList func" [
-    testCase "Empty list is 0" $ assertEqual [] (0) (maxList []),
-    testCase "Negative list is 0" $ assertEqual [] (0) (maxList [-4,-1,-5,-3]),
-    testCase "Negative list is 0" $ assertEqual [] (0) (maxList [-9]),
-    testCase "Positive list works" $ assertEqual [] (8934) (maxList [8934]),
-    testCase "Positive list works" $ assertEqual [] (89341) (maxList [89341,342,513,5,92]),
-    testCase "Positive list works" $ assertEqual [] (1) (maxList [0,0,1,0,0]),
-    testCase "Positive list works" $ assertEqual [] (5) (maxList [3,-2,1,5,-7])
-    ]
 
-zipTest1 = QC.testProperty "For all Lists, zipWith should act like Prelude's zipWith" $ 
-    \la lb -> (Prelude.zipWith (+) (la::[Integer]) (lb::[Integer])) == (HigherOrderProblems.zipWith (+) (la::[Integer]) (lb::[Integer]))
-zipTest2 = QC.testProperty "For all Lists, zipWith should act like Prelude's zipWith" $ 
-    \la lb -> (Prelude.zipWith (*) (la::[Integer]) (lb::[Integer])) == (HigherOrderProblems.zipWith (*) (la::[Integer]) (lb::[Integer]))
-zipTest3 = QC.testProperty "For all Lists, zipWith should act like Prelude's zipWith" $ 
-    \la lb -> (Prelude.zipWith (++) la lb) == (HigherOrderProblems.zipWith (++) (la::[String]) (lb::[String]))
-zipTest4 = QC.testProperty "For all Lists, zipWith should act like Prelude's zipWith" $ 
-    \la lb -> (Prelude.zipWith (max) (la::[Integer]) (lb::[Integer])) == (HigherOrderProblems.zipWith (max) (la::[Integer]) (lb::[Integer]))
-zipWithTests = testGroup "Tests for zipWith" [
-    zipTest1,zipTest2,zipTest3
-    ]
-
-dotTests = testGroup "Tests for dot func" [
-    testCase "dot product should work" $ assertEqual [] (1) (dot [1] [1]),
-    testCase "dot product should work" $ assertEqual [] (15) (dot [1,2,3] [2,2,3]),
-    testCase "dot product should work" $ assertEqual [] (-41) (dot [3,5,1,5,6,7] [-2,3,4,1,-4,-5])
-    ]
-    
-listAdderTests = testGroup "Tests for listAdder func" [
-    testCase "listAdder should work" $ assertEqual [] ([]) (listAdder [] []),
-    testCase "listAdder should work" $ assertEqual [] ([10]) (listAdder [1] [9]),
-    testCase "listAdder should work" $ assertEqual [] ([3,5,7]) (listAdder [1,2,3] [2,3,4]),
-    testCase "listAdder should work" $ assertEqual [] ([11,7]) (listAdder [2,3] [9,4,2,9]),
-    testCase "listAdder should work" $ assertEqual [] ([3,14,16]) (listAdder [1,5,8,6,3] [2,9,8])
-    ]
-
-listMaxerTests = testGroup "Tests for listAdder func" [
-    testCase "listMaxer should work" $ assertEqual [] ([]) (listMaxer [] []),
-    testCase "listMaxer should work" $ assertEqual [] ([9]) (listMaxer [1] [9]),
-    testCase "listMaxer should work" $ assertEqual [] ([2,3,4]) (listMaxer [1,2,3] [2,3,4]),
-    testCase "listMaxer should work" $ assertEqual [] ([9,4]) (listMaxer [2,3] [9,4,2,9]),
-    testCase "listMaxer should work" $ assertEqual [] ([9,9,8]) (listMaxer [9,5,8,6,3] [2,9,8])
-    ]
-    
 firstnames2 = ["Andre","Xin","Jinye","Marc","Duy","Xichao"]
 lastnames2  = ["Pires","He","Cai","Bernstein","Ngyuen","Geng"]
 fullnames2  = ["Andre Pires","Xin He","Jinye Cai","Marc Bernstein","Duy Ngyuen","Xichao Geng"]
-fullNamesTest = testGroup "Tests for fullname func" [
-    testCase "fullNames should work" $ assertEqual [] (fullNames firstNames lastNames) (["Cheng Zhang","Mark Lemay","Wayne Snyder"]),
-    testCase "fullNames should work" $ assertEqual [] (fullNames [] []) ([]),
-    testCase "fullNames should work" $ assertEqual [] (fullNames firstnames2 lastnames2) (fullnames2),
-    testCase "fullNames should work" $ assertEqual [] (fullNames (take 3 firstnames2) lastnames2) (take 3 fullnames2)
-    ]
 
 
-addAllListsTests = testGroup "Tests for addAllLists func" [
-    testCase "addAllLists should work" $ assertEqual [] ([10, 14,8]) (addAllLists [[2,3,4], [4,5,3], [1,1,1], [3,5, 0]])
-    ]
     
 petTests = testGroup "Tests for Pet datatype" [
     QC.testProperty "For all okCat, they are happy when temp >0" $
@@ -120,17 +67,10 @@ teamTests = testGroup "tests for team functions" [
     
     ]
     
----- All Higher Order Test ----
-higherOrderTest = testGroup "Test For Higher Order Problem" [
+
+tests = testGroup "Test For Higher Order Problem" [
     addoneListTest,
     sumTest,
     productTest,
-    maxListTests,
-    zipWithTests,
-    dotTests,
-    listAdderTests,
-    listMaxerTests,
-    fullNamesTest,
-    addAllListsTests,
     petTests
     ]
