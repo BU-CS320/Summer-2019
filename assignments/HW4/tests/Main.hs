@@ -6,7 +6,7 @@ module Main where
   import LangParserTest (parserTest)
   import LangEvalTest (errorTest, evalTest, stdLibTest)
   import EnvUnsafeTest (monadLawTest, functorLawTest)
-
+  import UsingLambdaCalcTest (usingLambdaCalcTest)
   main = 
     do 
         setEnv "TASTY_TIMEOUT" "40s"
@@ -21,10 +21,8 @@ module Main where
     testGroup
       "allTests"
       [
-        functorLawTest,
-        monadLawTest,
-        errorTest,
-        evalTest,
-        stdLibTest,
-        parserTest
+        testGroup "LangParserTest" [parserTest],
+        testGroup "LangEvalTest" [errorTest, evalTest, stdLibTest],
+        testGroup "EnvUnsafeTest" [monadLawTest, functorLawTest],
+        testGroup "UsingLambdaCalcTest" [usingLambdaCalcTest]
       ]
