@@ -5,6 +5,7 @@ module Lang1 where
 data Ast =
     LiteralInt Integer
   | Plus Ast Ast
+  | Mult Ast Ast
   | Div Ast Ast
 
 -- Evaluate the AST to calculate its value
@@ -20,3 +21,4 @@ instance Show Ast where
   show (LiteralInt i) = show i
   show (l `Plus` r) = "(" ++ (show l) ++ " + " ++  (show r) ++ ")"
   show (Div l r) = "(" ++ show l ++ " / " ++ show r ++ ")"
+  show (l `Mult` r) = "(" ++ (show l) ++ " * " ++  (show r) ++ ")"

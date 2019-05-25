@@ -1,6 +1,6 @@
 module Map
-  (Map(),empty, insert, toList, fromList, size, member, lookup, delete, update, union, filter,
-  null, singleton, elems, keys, difference, adjust, alter
+  (Map(),empty, insert, toList, fromList, size, member, lookup, delete, filter,
+  update, union, null, singleton, elems, keys, difference, adjust, alter
   ) where  -- DO NOT EDIT THESE LINES
 import Prelude hiding (filter, lookup, null)
   
@@ -19,8 +19,8 @@ empty = undefined
 insert :: Ord k => k -> a -> Map k a -> Map k a
 insert = undefined
 
---  Convert to a list of key/value pairs.
--- return a list where keys are sorted from smallest to the largest
+-- Convert to a list of key/value pairs.
+-- returns a list where keys are sorted from smallest to the largest
 toList :: Map k a -> [(k, a)]
 toList = undefined
 
@@ -42,6 +42,10 @@ member = undefined
 lookup :: Ord k => k -> Map k a -> Maybe a
 lookup = undefined
 
+-- Delete a key and its value from the map. When the key is not a member of the map, the original map is returned.
+delete :: Ord k => k -> Map k a -> Map k a
+delete = undefined
+
 
 -- Filter all values that satisfy the predicate.
 filter :: Ord k => (a -> Bool) -> Map k a -> Map k a
@@ -61,9 +65,13 @@ instance Functor (Map k) where
 
 -- ungraded bonus
 
--- Delete a key and its value from the map. When the key is not a member of the map, the original map is returned.
-delete :: Ord k => k -> Map k a -> Map k a
-delete = undefined
+-- The expression (update f k map) updates the value x at k (if it is in the map). If (f x) is Nothing, the element is deleted. If it is (Just y), the key k is bound to the new value y.
+update :: Ord k => (a -> Maybe a) -> k -> Map k a -> Map k a
+update = undefined
+
+--  The expression (union t1 t2) takes the left-biased union of t1 and t2. It prefers t1 when duplicate keys are encountered, i.e. (union == unionWith const).
+union :: Ord k => Map k a -> Map k a -> Map k a
+union = undefined
 
 -- Is the map empty?
 null :: Map k a -> Bool

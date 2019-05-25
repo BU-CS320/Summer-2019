@@ -18,3 +18,4 @@ eval = undefined
 instance Show Ast where
   show (LiteralInt i) = show i
   show (l `Plus` r) = "(" ++ (show l) ++ " + " ++  (show r) ++ ")"
+  show (l `Mult` r) = "(" ++ (show l) ++ " * " ++  (show r) ++ ")"

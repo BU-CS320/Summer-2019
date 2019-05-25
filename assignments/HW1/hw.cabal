@@ -1,4 +1,4 @@
-name:                 week2
+name:                 hw
 version:              0.1.0.0
 synopsis:
 homepage:
@@ -27,4 +27,4 @@ test-suite test
   build-depends:
       containers, base >= 4.7 && < 5
     , tasty >= 0.7, tasty-hunit
-    , week2
+    , hw
