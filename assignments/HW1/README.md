@@ -1,5 +1,6 @@
-# HW1
-Due 5/30
+# HW1 -- Due Thursday 5/30
+
+Analytical Homework is <a href= "http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/Analytical%20Homeworks/hw01.pdf">here</a>. 
 
 
 ### Instructions
