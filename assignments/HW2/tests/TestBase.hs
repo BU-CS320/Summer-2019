@@ -68,6 +68,7 @@ instance (Iso k1 k2, Iso a1 a2, Ord k1, Ord k2) => Iso (Data.Map.Map k1 a1) (HwM
 
 instance (Arbitrary a, Ord k, Arbitrary k) => Arbitrary (HwMap.Map k a) where
   arbitrary = do map <- arbitrary; pure $ haskMapToHwMap $ map 
+  -- TODO: every good arb needs a shrinker
 
 -- define iso on any same type
 instance Iso Integer Integer where 

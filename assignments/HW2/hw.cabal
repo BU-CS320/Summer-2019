@@ -10,7 +10,7 @@ cabal-version:        >=1.10
 
 
 library
-  exposed-modules:    HigherOrderProblems, TypeProblems, Map, Lang0, Lang1, Lang2, Lang3, Lang4
+  exposed-modules:    BareBonesAgain, HigherOrderProblems, TypeProblems, Map, Lang0, Lang1, Lang2, Lang3, Lang4
   ghc-options:        -fwarn-incomplete-patterns -fwarn-incomplete-uni-patterns
   build-depends:      containers, base >= 4.7 && < 5
   hs-source-dirs:     src

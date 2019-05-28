@@ -13,6 +13,7 @@ import Lang3Test(tests)
 import Lang4Test(tests)
 import MapTest(tests)
 import HigherOrderTest(tests)
+import BareBonesAgainTest(tests)
 
 import System.Environment
 import Test.Tasty (defaultMain, testGroup, TestTree)
@@ -34,6 +35,6 @@ allTests = testGroup "all tests" [
   typeProblemTests,
   lang0Tests, Lang1Test.tests, Lang1Test.tests, Lang2Test.tests, Lang3Test.tests, Lang4Test.tests,
   MapTest.tests,
-  HigherOrderTest.tests
-	
+  HigherOrderTest.tests,
+  BareBonesAgainTest.tests
   ]

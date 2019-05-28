@@ -15,9 +15,6 @@ data List a = Nil | Cons a (List a) deriving Show
 isEmpty :: List a -> Bool
 isEmpty _   = undefined
 
-length :: List a -> Integer
-length _   = undefined
-
 -- append two lists
 (++) :: (List a) -> (List a) -> (List a)
 (++) _  _ = undefined
@@ -45,7 +42,7 @@ multiplyEachBy7 :: List Integer -> List Integer
 multiplyEachBy7 = undefined
 
 
--- keep only the elements from the list that have the property of interest
+-- keep only the elements from the list that have the property of interest, maintain the original order
 filter :: (a -> Bool) ->  List a ->  List a
 filter  _  _ = undefined
 
