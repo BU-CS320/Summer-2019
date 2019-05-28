@@ -9,7 +9,7 @@ import Test.Tasty (testGroup, TestTree)
 import Test.Tasty.HUnit (assertEqual, testCase, assertBool, (@=?))
 import Test.Tasty.QuickCheck as QC
 
-import qualified Data.Map as StdMap
+import qualified Data.Map as StdMap -- TODO: probly make the student map qualified?
 
 -- TODO: clean up the type ascriptions, qualifications many are unneeded
 -- TODO: some var names are unneeded

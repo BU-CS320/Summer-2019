@@ -11,7 +11,7 @@ addoneList :: [Integer] -> [Integer]
 addoneList = undefined
 
 -- add 1 to each element in a Map 
--- (you will need to finish the Map part of the HW first, hint: use fmap)
+-- (you will need to finish the Map part of the HW first)
 addoneMap :: Ord k => Map k Integer -> Map k Integer
 addoneMap = undefined
 
@@ -42,7 +42,7 @@ product xs = foldr undefined undefined xs
 -- if you store a function in the constructor you cannot "deriving Show"
 data Pet -- = ...
 
--- define a cat that is happy when the temperature is > 0
+-- define a cat that is happy when the temperature is > 0 and sad when the temperature is <= 0
 okCat :: Pet
 okCat = undefined
 
@@ -92,15 +92,27 @@ footballExampleStats = [FootBallStat 1960 "Patriots" 5 9 0, FootBallStat 1961 "P
 
 -- hint: the following functions are easy if you use map, filter, and pattern matching in a lambda
 
+-- | for instance,
+-- >>> yearAndTeamWithTotalGames [FootBallStat 2018 "Rams" 13 	3 	0, FootBallStat 2017 "Rams" 11 	5 	0]
+-- [(2018, "Rams", 16), (2017, "Rams", 16)]
 yearAndTeamWithTotalGames  :: [FootBallStat] -> [(Integer, String, Integer)] 
 yearAndTeamWithTotalGames = undefined
 
+-- | for instance,
+-- >>> yearAndTeamWithMoreThan1Tie [FootBallStat 2016 "Seattle Seahawks" 	10 	5 	1 , FootBallStat 2017 "Rams" 11 	5 	0]
+-- [(2016, "Seattle Seahawks")]
 yearAndTeamWithMoreThan1Tie  :: [FootBallStat] -> [(Integer, String)] 
 yearAndTeamWithMoreThan1Tie = undefined
 
+-- | for instance,
+-- >>> yearAndTeamWithMoreThan1Tie [FootBallStat 1969 "Patriots" 4 10 0, FootBallStat 1970 "Patriots" 2 12 0]
+-- [(1970,"Patriots")]
 yearAndTeamWithlessThan3Wins  :: [FootBallStat] -> [(Integer, String)] 
 yearAndTeamWithlessThan3Wins = undefined
 
+-- | for instance,
+-- >>> yearAndTeamWithMoreThan1Tie [FootBallStat 1960 "Patriots" 5 9 0, FootBallStat 1961 "Patriots" 9 4 1]
+-- [(1961,"Patriots")]
 yearsAndTeamWithMoreWinsThanLosses :: [FootBallStat] -> [(Integer, String)] 
 yearsAndTeamWithMoreWinsThanLosses = undefined
 
