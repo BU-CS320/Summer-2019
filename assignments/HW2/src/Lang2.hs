@@ -6,6 +6,7 @@ module Lang2 where
 
 -- We will now add a print command to the abstract syntax tree. print takes one expression,
 -- evaluates it, prints the result, and finally evaluates to that result.
+-- where relevant, you should evaluate left to right. 
 
 data Ast =
     LiteralInt Integer

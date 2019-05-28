@@ -4,7 +4,7 @@ module TypeProblems where
 data Answer a = Impossible | Example a
 
 
--- Give Example definitions that have the following types if it is possible. If not return "Impossible".  It does not matter what the definitions actually do as long AS they are correctly typed, they do not "loop forever", and they do not use undefined.
+-- Give Example definitions that have the following types if it is possible. If not return "Impossible".  Examples must not "loop forever", use undefined or cause an error.
 
 q1 :: Answer [Bool]
 q1 = undefined

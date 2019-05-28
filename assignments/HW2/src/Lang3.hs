@@ -9,6 +9,7 @@ import qualified Data.Map as Map
 -- The state (containing values for variables) is passed along as the evaluation proceeds; as Assign
 -- expressions are evaluated, bindings are added to the state, and when Var expressions are evaluated
 -- they are looked up in the state.
+-- where relevant, you should evaluate left to right. 
 
 data Ast =
       LiteralInt Integer
@@ -20,8 +21,6 @@ data Ast =
 
 
 type State = Map String Integer
-
--- hint use lookup
 
 eval :: Ast -> State -> (Maybe Integer, State)
 eval = undefined
