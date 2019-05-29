@@ -1,10 +1,5 @@
 module Main where
 
-{-
-import MapTest(mapTest)
-import LangTest(langTest)
-import HigherOrderTest(higherOrderTest)
--}
 import TypeProblemsTest(typeProblemTests)
 import Lang0Test(lang0Tests) -- TODO : names are overly prefixed, just call it test and refer to it as Lang1Test.tests
 import Lang1Test(tests)
@@ -23,7 +18,7 @@ import Test.Tasty.QuickCheck (testProperty,Arbitrary, oneof,arbitrary )
 
 main = 
   do 
-	  setEnv "TASTY_TIMEOUT" "5s"
+	  setEnv "TASTY_TIMEOUT" "30s"
 	  setEnv "TASTY_QUICKCHECK_TESTS" "1000"
 	  setEnv "TASTY_QUICKCHECK_MAX_SIZE" "1000"
 	  defaultMain allTests
