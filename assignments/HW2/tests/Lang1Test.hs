@@ -58,7 +58,7 @@ tests = testGroup "Test lang 1" [
   testProperty "For all ast1 & ast2, `Div ast1 ast2` should evaluate to `(eval ast1) / (eval ast2)` where divide by zero returns Nothing" $
                 \ast1 ast2 -> eval (Div ast1 ast2) == safeDiv (eval ast1) (eval ast2),
   testProperty "eval anything / 0    returns Nothing" $
-                \ast i -> eval (ast `Div` LiteralInt i) == Nothing,
+                \ast -> eval (ast `Div` LiteralInt 0) == Nothing,
   testCase  "div by 0 never recovers" $
                 assertEqual [] Nothing $ eval $ (LiteralInt 1)  `Plus` (LiteralInt 1) `Mult` (LiteralInt 1 `Div` ((LiteralInt 1 `Div` LiteralInt 0) `Div` LiteralInt 1)) `Mult` (LiteralInt 1) `Plus` (LiteralInt 1) 
 --testProperty "For all ast, if any of the sub expression is Nothing, the ast should evaluate to nothing" $
