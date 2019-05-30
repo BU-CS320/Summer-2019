@@ -24,7 +24,7 @@ showFullyParen (l `Plus` r)      = "(" ++ showFullyParen l ++ " + " ++  showFull
 showFullyParen (l `Sub` r)       = "(" ++ showFullyParen l ++ " - " ++  showFullyParen r ++ ")"
 showFullyParen (l `Mult` r)      = "(" ++ showFullyParen l ++ " * " ++  showFullyParen r ++ ")"
 showFullyParen (l `Separator` r) = "(" ++ showFullyParen l ++ " ; " ++  showFullyParen r ++ ")"
-showFullyParen (Print b)         = "print(" ++ show b ++ ")"
+showFullyParen (Print b)         = "print(" ++ showFullyParen b ++ ")"
 
 
 showPretty :: Ast  -- ^ the ast that we need to print

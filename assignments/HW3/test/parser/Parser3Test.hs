@@ -4,20 +4,12 @@ import Test.Tasty (defaultMain, testGroup, TestTree)
 import Test.Tasty.HUnit (assertEqual, assertBool, testCase, (@=?))
 import Test.Tasty.QuickCheck (testProperty,Arbitrary, oneof,arbitrary )
 
-import Lang3 (Ast(..), eval, showPretty)
+import Lang3 (Ast(..), eval, showPretty, showFullyParen)
 import Lang3TestTypes
 import Lang3Parser(parser)
 import ParserMonad (parse)
 
--- show the fully parenthesized syntax
-showFullyParen :: Ast -> String
-showFullyParen (LiteralInt i)    = show i
-showFullyParen (Var s)           = s
-showFullyParen (l `Plus` r)      = "(" ++ showFullyParen l ++ " + " ++  showFullyParen r ++ ")"
-showFullyParen (l `Sub` r)       = "(" ++ showFullyParen l ++ " - " ++  showFullyParen r ++ ")"
-showFullyParen (l `Mult` r)      = "(" ++ showFullyParen l ++ " * " ++  showFullyParen r ++ ")"
-showFullyParen (l `Separator` r) = "(" ++ showFullyParen l ++ " ; " ++  showFullyParen r ++ ")"
-showFullyParen (Assign v b)      = "(" ++ v ++ " := " ++ showFullyParen b ++ ")"
+
 
 
 

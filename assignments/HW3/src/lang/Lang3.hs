@@ -26,6 +26,8 @@ type AssignmetState = Map String Integer
 -- for simplicity you will not need to separately encode failure at the type level,
 -- Instead, you may return 0 for variables that are not defined
 
+-- As before, Lang3 should evaluate left to right, and assignment returns the value assigned.  For instance `(x := 2) + x` should eval to `4`
+
 eval :: Ast -> State AssignmetState Integer
 eval = undefined
 
@@ -39,7 +41,7 @@ showFullyParen (l `Plus` r)      = "(" ++ showFullyParen l ++ " + " ++  showFull
 showFullyParen (l `Sub` r)       = "(" ++ showFullyParen l ++ " - " ++  showFullyParen r ++ ")"
 showFullyParen (l `Mult` r)      = "(" ++ showFullyParen l ++ " * " ++  showFullyParen r ++ ")"
 showFullyParen (l `Separator` r) = "(" ++ showFullyParen l ++ " ; " ++  showFullyParen r ++ ")"
-showFullyParen (Assign v b)      = "(" ++ v ++ " := " ++ show b ++ ")"
+showFullyParen (Assign v b)      = "(" ++ v ++ " := " ++ showFullyParen b ++ ")"
 
 
 showPretty :: Ast -> Integer -> String
