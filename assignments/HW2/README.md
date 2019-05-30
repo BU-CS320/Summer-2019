@@ -1,5 +1,5 @@
 # HW2
-Due 6/5
+Due 6/6
 ## Instructions
 * Fill in the bodies of the undefined functions and data
 * DO NOT CHANGE THE TYPE SIGNATURES!
