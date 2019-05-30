@@ -53,6 +53,6 @@ instance Arbitrary Ast where
 
 
 lang0Test = testGroup "Lang Parser test" [
-      QC.testProperty "Lang 0: fully parenthisized expressions should parse" $ ((\ x -> Just (x , "") == ((parse parser ) $ showFullyParen x)) :: Ast -> Bool),
+      QC.testProperty "Lang 0: fully parenthesized expressions should parse" $ ((\ x -> Just (x , "") == ((parse parser ) $ showFullyParen x)) :: Ast -> Bool),
       QC.testProperty "Lang 0: expressions that are pretty printed should parse" $ ((\ x -> Just (x , "") == ((parse parser ) $ showPretty x 100)) :: Ast -> Bool)
       ]

@@ -7,19 +7,11 @@ import Data.Map (Map)-- for state
 import qualified Data.Map as Map
 
 import State
-import Lang3(Ast(..),EvalState)
+import Lang3(Ast(..),AssignmetState, eval)
 
 
--- in the old lang3 you had to do something like this (simplified)
-eval (Plus l r) s1 = case (eval l s1)  of 
-  (l', s2) -> case (eval r s2)  of  -- state needs to be threaded through!
-    (r', s3) -> ((l' + r'), s3)
-eval (Assign v ast) s1 = case eval ast s1 of
-  (x, s2) -> (x, Map.insert v x s2)
-
-
--- We went over this functionality in some labs
-setVar :: String -> Integer -> State EvalState ()
+-- You might want to use helper functions like
+setVar :: String -> Integer -> State AssignmetState ()
 setVar v i = 
   do s <- get
      put (Map.insert v i s)
@@ -27,7 +19,7 @@ setVar v i =
 -- same as
 --State (\ s -> ((), Map.insert v i s))
 
-getVar :: String -> State EvalState Integer
+getVar :: String -> State AssignmetState Integer
 getVar v =
   do s <- get
      case (Map.lookup v s) of

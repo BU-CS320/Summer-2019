@@ -12,11 +12,12 @@ cabal-version:        >=1.10
 library
   exposed-modules:    Lang0Parser, Lang1Parser, Lang2Parser, Lang3Parser, Lang4Parser, 
                       Lang0, Lang1, Lang2, Lang3, Lang4, HelpShow,
-                      PrinterMonad, Reader, State, ParserMonad
+                      PrinterMonad, Reader, State, ParserMonad,
+                      BareBonesLast, TypeclassProblems
 
   ghc-options:        -fwarn-incomplete-patterns -fwarn-incomplete-uni-patterns
   build-depends:      containers, base >= 4.7 && < 5
-  hs-source-dirs:     src, src/lang, src/parser
+  hs-source-dirs:     src, src/lang, src/parser, src/hints
   default-language:   Haskell2010
 
 test-suite test
@@ -25,12 +26,14 @@ test-suite test
   type:
     exitcode-stdio-1.0
   hs-source-dirs:
-    tests
+    test, test/lang, test/parser, test/BareBonesLast
   main-is: Main.hs
   other-modules:
     Lang1TestTypes, Lang2TestTypes, Lang3TestTypes, Lang4TestTypes, ReaderTestType, StateTestType,
-    Lang3Test, Lang4Test, Parser1Test, Parser2Test, Parser3Test, Parser4Test, ReaderTest, StateTest
+    Lang0Test, Lang1Test, Lang2Test,
+    Lang3Test, Lang4Test, Parser1Test, Parser2Test, Parser3Test, Parser4Test, ReaderTest, StateTest,
+    BareBonesLastTestBase, EqTest
   build-depends:
       containers, base >= 4.7 && < 5
     , tasty >= 0.7, tasty-hunit, tasty-quickcheck, generic-arbitrary
-    , week8
+    , hw

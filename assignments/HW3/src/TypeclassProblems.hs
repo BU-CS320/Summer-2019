@@ -1,7 +1,7 @@
 module TypeclassProblems where
 
 -- define data type for all 7 days of the week
-data DayOfTheWeek -- = ...
+data DayOfTheWeek -- = ... deriving Show 
 
 -- often built-in haskell classes come with nice syntax, when the following is defined try this 
 -- in the console [Monday .. Friday].  

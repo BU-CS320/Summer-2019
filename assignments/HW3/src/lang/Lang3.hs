@@ -20,13 +20,13 @@ data Ast =
     | Mult Ast Ast
   deriving Show
 
-type EvalState = Map String Integer
+type AssignmetState = Map String Integer
 
 
--- for simplicity do not we will not separately encode failure at the type level,
--- you may return 0 for variable that are not defined
+-- for simplicity you will not need to separately encode failure at the type level,
+-- Instead, you may return 0 for variables that are not defined
 
-eval :: Ast -> State EvalState Integer
+eval :: Ast -> State AssignmetState Integer
 eval = undefined
 
 

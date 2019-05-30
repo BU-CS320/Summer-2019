@@ -36,5 +36,10 @@ instance Monad (Reader e) where
 
   -- make sure your implementation follows the Monad laws
 
+
+-- "local" runs functions under a modified local environment
+local :: (r -> r) -> Reader r a -> Reader r a
+local changeEnv comp  = Reader (\e -> runReader comp (changeEnv e) )
+
 -- technical note: 
 -- this is modled after the Reader Monad in http://hackage.haskell.org/package/mtl-2.2.2/docs/Control-Monad-Reader.html

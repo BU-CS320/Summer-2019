@@ -15,12 +15,6 @@ import Lang4(Ast(..),Env)
 getVar :: String -> Reader Env Integer
 getVar v = undefined -- use the "ask" function, or the constructor 
 
--- for the Let case:
-
--- There is a standard reader function that I forgot to include called "local"
--- it runs functions under a modified local environment
-local :: (r -> r) -> Reader r a -> Reader r a
-local changeEnv comp  = Reader (\e -> runReader comp (changeEnv e) )
 
 -- so your Let case would look like
 

@@ -3,14 +3,9 @@ import Control.Monad(ap)
 
 import Data.Char
 
--- this is optional, but designed to give you a flavour of next week.
--- You can use this just like the library we wrote before, but now you need to write parse in front
--- You make also use "do" notation
-
 -- If your interested in this style of parsing look at the parsec, megaparsec, attoparsec libraries
 
 -- the type of a parser
--- these are the same as last time, but we wrap it in a data so we can define typeclasses on it
 data Parser a = Parser (String -> Maybe (a, String))
 
 -- a helper function to pull out the function bit (same as book)

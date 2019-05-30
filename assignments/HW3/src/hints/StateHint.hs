@@ -1,13 +1,13 @@
-import Prelude
+-- This file is just for hints, examples, and test cases
+-- Don't edit this file unless you are comfortable resolving merge conflicts, since we may add hints in the future
+-- Instead copy and paste what you want into your homework
+module StateHint where
+
 import State
 
 
--- This is the example from lecture
+-- This is the example we may go over in lecture
 
-
--- This file is just for examples and simple test cases
--- Don't edit this file unless you are comfortable resolving merge conflicts, since we may add hints in the future
--- Instead copy and paste what you want into your homework
 
 
 

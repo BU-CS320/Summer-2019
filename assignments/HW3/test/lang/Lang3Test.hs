@@ -1,42 +1,44 @@
+-- TODO: redo this more like https://github.com/BU-CS320/Summer-2019/blob/master/assignments/HW2/tests/Lang3Test.hs
+
 module Lang3Test where
 
 import Test.Tasty (testGroup, TestTree)
 import Test.Tasty.HUnit (assertEqual, testCase, assertBool, (@=?))
 import Test.Tasty.QuickCheck as QC
-
-import Lang3 (Ast(..), eval, showFullyParen, showPretty, EvalState)
-import Lang3TestTypes (VarName,varNameToString)
-import State (runState,get,put)
 import Data.Map (Map)
 import qualified Data.Map as Map
 
-evalOneExpGetState :: EvalState -> Ast -> EvalState
+import Lang3 (Ast(..), eval, showFullyParen, showPretty, AssignmetState)
+import Lang3TestTypes (VarName,varNameToString)
+import State (runState,get,put)
+
+evalOneExpGetState :: AssignmetState -> Ast -> AssignmetState
 evalOneExpGetState state exp1 = 
     let
         (res1, state1) = runState (eval exp1) state
         in state1
 
-evalTwoExpGetState :: EvalState -> Ast -> Ast -> EvalState
+evalTwoExpGetState :: AssignmetState -> Ast -> Ast -> AssignmetState
 evalTwoExpGetState initState exp1 exp2 =
     let
         (res1, state1) = runState (eval exp1) initState
         (res2, state2) = runState (eval exp2) state1
         in state2
 
-evalOneExpGetRes :: EvalState -> Ast -> Integer
+evalOneExpGetRes :: AssignmetState -> Ast -> Integer
 evalOneExpGetRes s ast = 
     let 
         (res1, state1) = runState (eval ast) s
         in res1
 
-evalTwoExpGetRes :: EvalState -> Ast -> Ast -> (Integer, Integer)
+evalTwoExpGetRes :: AssignmetState -> Ast -> Ast -> (Integer, Integer)
 evalTwoExpGetRes initState exp1 exp2 =
     let
         (res1, state1) = runState (eval exp1) initState
         (res2, state2) = runState (eval exp2) state1
         in (res1, res2)
 
-evalOneExpGetAll :: EvalState -> Ast -> (Integer, EvalState)
+evalOneExpGetAll :: AssignmetState -> Ast -> (Integer, AssignmetState)
 evalOneExpGetAll s ast =
     let
         (res1, state1) = runState (eval ast) s

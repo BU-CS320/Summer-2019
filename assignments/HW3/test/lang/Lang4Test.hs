@@ -1,14 +1,15 @@
+
+-- TODO: redo this more like https://github.com/BU-CS320/Summer-2019/blob/master/assignments/HW2/tests/Lang4Test.hs
 module Lang4Test where
 
 import Test.Tasty (testGroup, TestTree)
 import Test.Tasty.HUnit (assertEqual, testCase, assertBool, (@=?))
 import Test.Tasty.QuickCheck as QC
 
-import Lang4 (Ast(..), eval, showFullyParen)
+import Lang4 (Ast(..), eval, showFullyParen, showPretty)
 import Lang4TestTypes
 import Reader
 
-import HelpShow
 
 
 import Data.Map (Map,empty,insert)-- for Env
@@ -16,16 +17,6 @@ type Env = Map String Integer
 
 evalOneExpGetRes :: Env -> Ast -> Integer
 evalOneExpGetRes initState exp1 = runReader (eval exp1) initState
-
-
-showPretty :: Ast -> Integer -> String
-showPretty (LiteralInt i)     _ = show i
-showPretty (Var s)            _ = s
-showPretty (l `Mult` r)       d = parenthesize d 1 ((showPretty l 1) ++ " * " ++  (showPretty r 0))
-showPretty (l `Plus` r)       d = parenthesize d 3 ((showPretty l 3) ++ " + " ++  (showPretty r 2))
-showPretty (l `Sub` r)        d = parenthesize d 3 ((showPretty l 3) ++ " - " ++  (showPretty r 2))
-showPretty (Let s val inThis) d = parenthesize d 5  ("let " ++ s ++ " = " ++ showPretty val 4 ++ " in " ++ showPretty inThis 5 ) -- binds most weakly
-
 
 
 lang4Test = testGroup "Lang4 test" [
