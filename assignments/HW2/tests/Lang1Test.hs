@@ -55,6 +55,8 @@ tests = testGroup "Test lang 1" [
                 \i -> eval (LiteralInt i) == (Just i),
   testProperty "For all ast1 & ast2, `Plus ast1 ast2` should evaluate to `(eval ast1) + (eval ast2)`" $
                 \ast1 ast2 -> eval (Plus ast1 ast2) == safeAdd (eval ast1) (eval ast2),
+  testProperty "For all ast1 & ast2, `Mult ast1 ast2` should evaluate to `(eval ast1) * (eval ast2)`" $
+                \ast1 ast2 -> eval (Mult ast1 ast2) == safeMult (eval ast1) (eval ast2),
   testProperty "For all ast1 & ast2, `Div ast1 ast2` should evaluate to `(eval ast1) / (eval ast2)` where divide by zero returns Nothing" $
                 \ast1 ast2 -> eval (Div ast1 ast2) == safeDiv (eval ast1) (eval ast2),
   testProperty "eval anything / 0    returns Nothing" $
