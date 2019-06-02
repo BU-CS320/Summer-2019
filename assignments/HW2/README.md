@@ -5,10 +5,12 @@ Due 6/6
 * DO NOT CHANGE THE TYPE SIGNATURES!
 
 ## Notes
+* Video hints on the lang0 .. lang4 problems: http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/RPReplay_Final1559443437.MP4
+
 * Prior versions of tests had bugs, we hope they are fixed, but if you find a discrepency or your tests run forever please let us know ASAP.
 * For the `TypeProblems` you may give any answer that is consistent with the type specified.  You do not need to give a term that has the most general given type.  For instace: if asked for a term of type `Bool -> Bool`, both `\ b -> not b` and `\ x -> x` will get full credit.
 * There are hint videos about the Lang problems: https://www.youtube.com/channel/UCfSqNB0yh99yuG4p4nzjPOA
-* Map implementations should take advantage of the BST to be reasonalby efficient.  We may deductuct points for obvous inefficiencies.    However, you do not need to do anything fancy like rebalencing your tree.
+* Map implementations should take advantage of the BST to be reasonably efficient.  We may deductuct points for obvous inefficiencies.    However, you do not need to do anything fancy like rebalencing your tree.
 
 ### Submit (similar to [week1](../week1))
 1. run the tests by running ```cabal new-test``` 
