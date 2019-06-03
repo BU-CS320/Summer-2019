@@ -34,7 +34,7 @@ tests = testGroup "Tests for map problems" [
       \ x y -> (x == (y :: Map Bool Bool)) == (y == x),
       
     testProperty "Transitivity" $
-      \ x y z -> ((x == (y :: Map Bool Bool)) && (y == z)) ==> (x == z), 
+      \ x y z -> ((x == (y :: Map () Bool)) && (y == z)) ==> (x == z),  -- very weak test at these types
       
     -- no Substitutivity test
     testProperty "Negation" $
