@@ -20,7 +20,7 @@ main =
   do 
 	  setEnv "TASTY_TIMEOUT" "30s"
 	  setEnv "TASTY_QUICKCHECK_TESTS" "1000"
-	  setEnv "TASTY_QUICKCHECK_MAX_SIZE" "1000"
+	  setEnv "TASTY_QUICKCHECK_MAX_SIZE" "200" -- turned down do to apparent performance bug in Arbitrary Map: http://hackage.haskell.org/package/QuickCheck-2.13.1/docs/src/Test.QuickCheck.Arbitrary.html#line-799
 	  defaultMain allTests
 	  unsetEnv "TASTY_TIMEOUT"
 	  unsetEnv "TASTY_QUICKCHECK_TESTS"
