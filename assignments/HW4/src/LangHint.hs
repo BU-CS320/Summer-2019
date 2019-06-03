@@ -41,6 +41,12 @@ e5 = showPretty (((Var "fun") `App` (ValInt 2)) `App` (ValInt 5)) $ 0
 
 e6 = showPretty (Not $ Not $ ((Var "fun") `App` (ValInt 2)) `App` (Not $ ValInt 5)) $ 0
 
+ex1 = Plus (ValInt 3) (ValInt 4)
+ex2 = And (ValBool True) (ValBool True)
+ex3 = And (ValInt 1) (ValInt 2)
+ex4 = Div (ValInt 5) (ValInt 0)
+ex5 = Div (ValInt 20) (ValInt 4)
+
 example = let x = Var "x"
           in App (Lam "x" ( x `Plus` x))  (ValInt 7)
 example' = run example

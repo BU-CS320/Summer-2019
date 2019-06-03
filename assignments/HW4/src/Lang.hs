@@ -31,12 +31,6 @@ data Ast = ValBool Bool
 instance Show Ast where
   show ast = showPretty ast 0
 
-ex1 = Plus (ValInt 3) (ValInt 4)
-
-ex2 = And (ValBool True) (ValBool True)
-
-ex3 = And (ValInt 1) (ValInt 2)
-
 
 -- the goal of the program is to return a value
 data Val = I Integer | B Bool
@@ -56,9 +50,10 @@ stdLib = Map.fromList
    ("head", undefined),
    ("len", undefined)]
 
--- helper function that runs with a standard library of functions: head, tail ...
+-- runs eval with a standard library of functions: head, tail ...
 run :: Ast -> Unsafe Val
 run a = runEnvUnsafe (eval a) stdLib
+
 
 
 
@@ -66,24 +61,9 @@ type Env = Map String Val
 
 
 eval :: Ast -> EnvUnsafe Env Val
-eval (ValInt i) = return (I i)
-eval (Div l r)  =
-  do l' <- evalInt l
-     r' <- evalInt r
-     if (r' == 0)
-     then err "cannot divide by 0"
-     else return (I (l' `div` r'))
-
-evalInt :: Ast -> EnvUnsafe Env Integer
-evalInt a =
-  do x <- eval a
-     case x of
-       I i -> return i
-       _   -> err "not a valid integer"
+eval = undefined
 
 
-ex4 = Div (ValInt 5) (ValInt 0)
-ex5 = Div (ValInt 20) (ValInt 4)
 
 
 -- This is helpful for testing and debugging
@@ -135,5 +115,6 @@ showPretty (Mult l r) i = parenthesize 12 i $ (showPretty l 12) ++ " * " ++ (sho
 showPretty (Div l r) i = parenthesize 12 i $ (showPretty l 12) ++ " / " ++ (showPretty r 13)
 
 showPretty (Not l ) i = parenthesize 14 i $  " ! " ++ (showPretty l 14)
+
 
 

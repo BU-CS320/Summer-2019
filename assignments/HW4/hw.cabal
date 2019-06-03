@@ -10,7 +10,7 @@ cabal-version:        >=1.10
 
 
 library
-  exposed-modules:    Lang, LangParser, ParserMonad, EnvUnsafe
+  exposed-modules:    UsingLambdaCalc, Lang, LangParser, ParserMonad, EnvUnsafe
   other-modules:      HelpShow
   ghc-options:        -fwarn-incomplete-patterns -fwarn-incomplete-uni-patterns
   build-depends:      containers, base >= 4.7 && < 5
@@ -25,8 +25,8 @@ test-suite test
   hs-source-dirs:
     tests
   main-is: Main.hs
-  other-modules: LangParserTest, LangEvalTest, EnvUnsafeTest
+  other-modules: UsingLambdaCalcTest, LangParserTest, LangEvalTest, EnvUnsafeTest
   build-depends:
       containers, base >= 4.7 && < 5
     , tasty >= 0.11.1, tasty-hunit, tasty-quickcheck
-    , week10
+    , hw
