@@ -10,8 +10,9 @@ import ParserMonad
 -- this parses Lang0 expressions with associativity and precedence
 
 parseAstInt :: Parser Ast
-parseAstInt = token intParser
-                `mapParser` (\ i -> LiteralInt i)
+parseAstInt = 
+  do i <- (token intParser)
+     return $ LiteralInt i
 
 parens :: Parser Ast
 parens = do token $ literal "("
