@@ -87,7 +87,7 @@ tests = testGroup "Test lang 3" [
             let
                 (l,s') = eval ast s 
                 (r,s'') = eval ast' s' 
-            in (r, s'') ==  eval (ast `Separator` ast') s,
+            in r ==  fst (eval (ast `Separator` ast') s),
 
     testProperty "For all initial state and ast, `Assign s ast` should be the same as eval ast" $
         \s ast v ->  
