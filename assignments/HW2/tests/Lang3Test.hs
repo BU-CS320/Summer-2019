@@ -87,7 +87,7 @@ tests = testGroup "Test lang 3" [
             let
                 (l,s') = eval ast s 
                 (r,s'') = eval ast' s' 
-            in case r of (Just _) ->  r ==  fst (eval (ast `Separator` ast') s)
+            in case l of (Just _) ->  r ==  fst (eval (ast `Separator` ast') s)
                          _ -> True, -- TODO: this is bad
 
     testProperty "For all initial state and ast, `Assign s ast` should be the same as eval ast" $
