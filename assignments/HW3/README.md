@@ -9,7 +9,8 @@ not yet posted
 ### Notes
 * You will need to define a `Show`able `DayOfTheWeek` in `TypeclassProblems.hs` before you can run the tests
 * There are a number of hint videos availible
-  * On Wayne's [YT channel](https://www.youtube.com/watch?v=ki6ZLeper70).
+  * On Wayne's [YT channel](https://www.youtube.com/watch?v=ki6ZLeper70) with sample parser code on the 
+  [class web site](http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/ParserExample.hs). 
   * There are several videos on how parser combinators work without monads: [Parser type](https://youtu.be/CNqEECXPU6c), [Parsing Library](https://youtu.be/XyRLWIQeWmo), [Write a Parser](https://youtu.be/fJ1QPEfmXi8).
 
 
