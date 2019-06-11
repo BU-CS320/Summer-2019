@@ -8,6 +8,7 @@ not yet posted
 
 ### Notes
 * You will need to define a `Show`able `DayOfTheWeek` in `TypeclassProblems.hs` before you can run the tests
+* Mark incorrectly copied some of the assignments **Lang1.hs eval, Lang2.hs eval and PrinterMonad are required** [@119](https://piazza.com/class/jvu6nbkjshs6gs?cid=119)
 * There are a number of hint videos availible
   * On Wayne's [YT channel](https://www.youtube.com/watch?v=ki6ZLeper70) with sample parser code on the 
   [class web site](http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/ParserExample.hs). 
