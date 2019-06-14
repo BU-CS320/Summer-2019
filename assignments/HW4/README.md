@@ -3,7 +3,8 @@ Due 6/20
 
 
 ## Analytical  Part
-not posted yet
+
+HW 04 is [here](http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/Analytical%20Homeworks/hw04.pdf)
 
 ## Code Part
 
