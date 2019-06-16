@@ -2,7 +2,7 @@
 Due 6/13
 
 ## Analytical  Part
-[HW 03 Analytical Homework (due Friday June 14th)](http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/Analytical%20Homeworks/hw03.pdf)
+[HW 03 Analytical Homework (due Friday June 21st @ midnight)](http://www.cs.bu.edu/fac/snyder/cs320/Homeworks%20and%20Labs/Analytical%20Homeworks/hw03.pdf)
 
 ## Code Part
 
