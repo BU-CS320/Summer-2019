@@ -1,4 +1,6 @@
 # Summer-2019
+[Project](https://github.com/BU-CS320/Summer-2019-project)
+
 [Class website](http://www.cs.bu.edu/fac/snyder/cs320/) (for lecture schedule, slides, and resources)
 
 [Piazza](https://piazza.com/class/jvu6nbkjshs6gs)
