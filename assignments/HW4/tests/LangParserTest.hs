@@ -16,6 +16,29 @@ import LangParser (parser)
 instance Arbitrary Ast where
     arbitrary = sized arbitrarySizedAst
 
+    shrink (ValInt i) = [ValInt i' | i' <-  shrink i]
+    shrink (ValBool i) = [ValBool i' | i' <-  shrink i]
+    shrink (And l r) = [l, r] ++ [And l' r' | (l', r') <-  shrink (l, r)]
+    shrink (Or l r) = [l, r] ++ [Or l' r' | (l', r') <-  shrink (l, r)]
+    shrink (Not i) = [i] ++ [Not i' | i' <-  shrink i]
+	
+    shrink (Plus l r) = [l, r] ++ [Plus l' r' | (l', r') <-  shrink (l, r)]
+    shrink (Minus l r) = [l, r] ++ [Minus l' r' | (l', r') <-  shrink (l, r)]
+    shrink (Mult l r) = [l, r] ++ [Mult l' r' | (l', r') <-  shrink (l, r)]
+    shrink (Div l r) = [l, r] ++ [Div l' r' | (l', r') <-  shrink (l, r)]
+	
+    shrink (If b t e) = [b, t, e] ++ [If b' t' e' | (b', t', e') <-  shrink (b, t, e)]
+	
+    shrink (Cons l r) = [l, r] ++ [Cons l' r' | (l', r') <-  shrink (l, r)]
+	
+    shrink (Let x l r) = [l, r] ++ [Let x l' r' | (l', r') <-  shrink (l, r)]
+	
+    shrink (Lam x l ) = [l] ++ [Lam x l'  | (l') <-  shrink (l)]
+    shrink (App l r) = [l, r] ++ [App l' r' | (l', r') <-  shrink (l, r)]
+	
+    shrink _ = []
+	
+
 arbitrarySizedAst ::  Int -> Gen Ast
 arbitrarySizedAst m | m < 1 = do i <- arbitrary
                                  b <- arbitrary
@@ -46,6 +69,6 @@ arbitrarySizedIf m = do b <- arbitrarySizedAst (m `div` 3)
 parserTest = testGroup
       "parser Test"
       [
-      testProperty "parse should return the same AST when fully parenthisized" $ ((\ x -> Just (x , "") == (parse parser $ showFullyParen x)) :: Ast -> Bool),
+      testProperty "parse should return the same AST when fully parenthesized" $ ((\ x -> Just (x , "") == (parse parser $ showFullyParen x)) :: Ast -> Bool),
       testProperty "parse should return the same AST when pretty printed" $ ((\ x -> Just (x , "") == (parse parser $ showPretty x 0)) :: Ast -> Bool)
       ]
