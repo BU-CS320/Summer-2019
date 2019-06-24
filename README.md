@@ -5,6 +5,8 @@
 
 [Piazza](https://piazza.com/class/jvu6nbkjshs6gs)
 
+## HW resubmission
+All homework that you would like us to regrade must be pushed to github by Sun 6/30, at 5:00 pm Boston time.
 
 ## REPL hints
 * `:load` or `:l` will change the module you are inspecting
