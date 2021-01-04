@@ -87,7 +87,7 @@ showFullyParen (Cons h t) = "(" ++ (showFullyParen h)  ++ " : " ++ (showFullyPar
 showFullyParen Nil = "( [] )"
 
 
--- provide a nice show with minimal parentheses, for testing an documentation
+-- provide a nice show with minimal parentheses, for testing and documentation
 
 
 
